@@ -1,0 +1,79 @@
+{
+  "policy": {
+    "name": "ec2-require-non-public-and-encrypted-volumes",
+    "resource": "aws.ec2",
+    "description": "Provision a lambda and cloud watch event target\nthat looks at all new instances and terminates those with\nunencrypted volumes.\n",
+    "mode": {
+      "type": "cloudtrail",
+      "role": "arn:aws:iam::304024060829:role/CloudCustodian-QuickStart",
+      "events": [
+        "RunInstances"
+      ],
+      "tags": {
+        "custodian-info": "mode=cloudtrail:version=0.9.26"
+      }
+    },
+    "filters": [
+      {
+        "type": "ebs",
+        "key": "Encrypted",
+        "value": false
+      }
+    ],
+    "actions": [
+      "terminate"
+    ]
+  },
+  "version": "0.9.26",
+  "execution": {
+    "id": "4fcbc68d-ef78-4d39-ae5e-66e357fcdac6",
+    "start": 1681894611.476659,
+    "end_time": 1681894630.5038357,
+    "duration": 19.02717661857605
+  },
+  "config": {
+    "region": "us-east-1",
+    "regions": [
+      "us-east-1"
+    ],
+    "cache": "~/.cache/cloud-custodian.cache",
+    "profile": null,
+    "account_id": "304024060829",
+    "assume_role": null,
+    "external_id": null,
+    "log_group": null,
+    "tracer": null,
+    "metrics_enabled": null,
+    "metrics": null,
+    "output_dir": "out",
+    "cache_period": 15,
+    "dryrun": false,
+    "authorization_file": null,
+    "subparser": "run",
+    "config": null,
+    "configs": [
+      "policy.yml"
+    ],
+    "policy_filters": [],
+    "resource_types": [],
+    "verbose": null,
+    "quiet": null,
+    "debug": false,
+    "skip_validation": false,
+    "command": "c7n.commands.run",
+    "vars": null
+  },
+  "sys-stats": {},
+  "api-stats": {
+    "lambda.GetFunction": 1,
+    "lambda.CreateFunction": 1
+  },
+  "metrics": [
+    {
+      "MetricName": "PolicyException",
+      "Timestamp": "2023-04-19T04:57:10.503835",
+      "Value": 1,
+      "Unit": "Count"
+    }
+  ]
+}

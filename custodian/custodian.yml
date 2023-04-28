@@ -1,0 +1,9 @@
+policies:
+  - name: my-first-policy
+    resource: aws.ec2
+    filters:
+      - "tag:Custodian": present
+    actions:
+      - stop
+
+     

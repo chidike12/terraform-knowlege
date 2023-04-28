@@ -1,0 +1,90 @@
+{
+  "policy": {
+    "name": "tag-compliance",
+    "resource": "aws.ec2",
+    "description": "Schedule a resource that does not meet tag compliance policies\nto be stopped in four days.\n",
+    "filters": [
+      {
+        "State.Name": "running"
+      },
+      {
+        "tag:Environment": "absent"
+      },
+      {
+        "tag:AppId": "absent"
+      },
+      {
+        "or": [
+          {
+            "tag:OwnerContact": "absent"
+          },
+          {
+            "tag:DeptID": "absent"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "type": "mark-for-op",
+        "op": "stop",
+        "days": 4
+      }
+    ]
+  },
+  "version": "0.9.26",
+  "execution": {
+    "id": "0369704b-0841-491f-afd5-242d16a5b838",
+    "start": 1681894630.5418851,
+    "end_time": 1681894630.5458863,
+    "duration": 0.004001140594482422
+  },
+  "config": {
+    "region": "us-east-1",
+    "regions": [
+      "us-east-1"
+    ],
+    "cache": "~/.cache/cloud-custodian.cache",
+    "profile": null,
+    "account_id": "304024060829",
+    "assume_role": null,
+    "external_id": null,
+    "log_group": null,
+    "tracer": null,
+    "metrics_enabled": null,
+    "metrics": null,
+    "output_dir": "out",
+    "cache_period": 15,
+    "dryrun": false,
+    "authorization_file": null,
+    "subparser": "run",
+    "config": null,
+    "configs": [
+      "policy.yml"
+    ],
+    "policy_filters": [],
+    "resource_types": [],
+    "verbose": null,
+    "quiet": null,
+    "debug": false,
+    "skip_validation": false,
+    "command": "c7n.commands.run",
+    "vars": null
+  },
+  "sys-stats": {},
+  "api-stats": {},
+  "metrics": [
+    {
+      "MetricName": "ResourceCount",
+      "Timestamp": "2023-04-19T04:57:10.544883",
+      "Value": 0,
+      "Unit": "Count"
+    },
+    {
+      "MetricName": "ResourceTime",
+      "Timestamp": "2023-04-19T04:57:10.544883",
+      "Value": 0.0019981861114501953,
+      "Unit": "Seconds"
+    }
+  ]
+}

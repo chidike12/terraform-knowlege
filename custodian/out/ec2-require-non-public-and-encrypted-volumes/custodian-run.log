@@ -1,0 +1,20 @@
+2023-04-19 04:56:20,004 - custodian.policy - INFO - policy:ec2-require-non-public-and-encrypted-volumes resource:aws.ec2 region:us-east-1 count:26 time:2.80
+2023-04-19 04:56:51,476 - custodian.policy - INFO - Provisioning policy lambda: ec2-require-non-public-and-encrypted-volumes region: us-east-1
+2023-04-19 04:56:54,377 - custodian.serverless - INFO - Publishing custodian policy lambda function custodian-ec2-require-non-public-and-encrypted-volumes
+2023-04-19 04:57:10,505 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\Users\16783\AppData\Local\Programs\Python\Python311\Lib\site-packages\c7n\policy.py", line 566, in provision
+    return manager.publish(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\16783\AppData\Local\Programs\Python\Python311\Lib\site-packages\c7n\mu.py", line 388, in publish
+    result, changed = self._create_or_update(
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16783\AppData\Local\Programs\Python\Python311\Lib\site-packages\c7n\mu.py", line 507, in _create_or_update
+    result = self.client.create_function(**params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16783\AppData\Local\Programs\Python\Python311\Lib\site-packages\botocore\client.py", line 530, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16783\AppData\Local\Programs\Python\Python311\Lib\site-packages\botocore\client.py", line 960, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the CreateFunction operation: The role defined for the function cannot be assumed by Lambda.

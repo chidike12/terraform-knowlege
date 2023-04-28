@@ -1,0 +1,2 @@
+2023-04-19 04:56:17,197 - custodian.policy - INFO - policy:s3-cross-account resource:s3 region:us-east-1 count:0 time:4.27
+2023-04-19 04:56:51,388 - custodian.policy - INFO - policy:s3-cross-account resource:s3 region:us-east-1 count:0 time:0.00

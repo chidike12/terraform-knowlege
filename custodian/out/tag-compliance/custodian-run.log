@@ -1,0 +1,2 @@
+2023-04-19 04:56:20,030 - custodian.policy - INFO - policy:tag-compliance resource:aws.ec2 region:us-east-1 count:0 time:0.00
+2023-04-19 04:57:10,544 - custodian.policy - INFO - policy:tag-compliance resource:aws.ec2 region:us-east-1 count:0 time:0.00
